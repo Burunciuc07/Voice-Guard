@@ -1,0 +1,23 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch Model Weights
+*.pth
+*.pt
+
+# Downloaded Datasets (keep the repo small!)
+dataset/
+
+# Temporary files
+temp_*.wav
+
+# IDE settings
+.vscode/
+.idea/
