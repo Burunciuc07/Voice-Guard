@@ -3,10 +3,16 @@ import shutil
 import torch
 import torch.nn.functional as F
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.responses import HTMLResponse
 from model import VoiceGuardCNN
 from dataset import extract_features
 
 app = FastAPI(title="VoiceGuard API", description="AI-based voice cloning detection system")
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_ui():
+    with open("index.html", "r", encoding="utf-8") as f:
+        return f.read()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = VoiceGuardCNN()
